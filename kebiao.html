@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <style type="text/css">
+    body{background-size:90% ; zoom:70%;}
+    table td:hover{
+      background-color: rgb(233, 247, 156);
+      position: relative;
+      top:5px;
+      left:5px;
+      box-shadow: 9px 13px 18px 0px #756e6e;
+    }
+
+    .cell {
+      height: 6em;
+      width: 10em;
+      padding:1em;
+    }
+
+    .cell > .detail {
+      display: none;
+    }
+
+    .cell > .detail.open {
+      display: table-cell;
+      position: absolute;
+      height: 10em;
+      width: 12em;
+      background-color: rgb(160, 216, 229);
+    }
+    .cell1{
+      margin: auto;
+      line-height:2em;
+      height:2em;
+      width:8em;
+      background-color:#7fffd4;
+    }
+    .cell2{
+      margin:auto;
+      line-height:5em;
+      height:5em;
+      width: 8em;
+    }
+  </style>
+  <title>2018-2019学年春课程表 班名：信息1701班</title>
+</head>
+<body background="8257b9a6579fcea.jpg" length:80%>
+<table border=1 align=center width="1500" cellpadding=8 cellspacing=6 bordercolor=black id = "Schedule">
+    <caption><strong>信息1701班课程表</strong></caption>
+
+  <script>
+    let tblEl = document.getElementById('Schedule');
+    for (let i = 0; i < 6; i++) {
+      let trEl = document.createElement('tr');
+      for (let j = 0; j < 8; j++) {
+        let tdEl = document.createElement('td');
+        let divEl = document.createElement('div')
+        divEl.align="center";
+        divEl.className = 'cell';
+        if(i==0) divEl.className = 'cell1';
+        if(j==0&&i!=0) divEl.className = 'cell2';
+        let detailDivEl = document.createElement('div');
+        if(i!=0&&j!=0) {
+          detailDivEl.align="center";
+          detailDivEl.className = 'detail';
+          detailDivEl.onmouseout =function(event) {
+            let names = detailDivEl.className.split(' ');
+            names = names.filter((x) => x != 'open')
+            detailDivEl.className = names.join(' ');
+          }
+        }
+        divEl.append(detailDivEl);
+        let briefDivEl = document.createElement('div');
+        briefDivEl.innerHTML="";
+        if(i==0&&j==0) briefDivEl.innerHTML="节次";
+        if(i==0&&j==1) briefDivEl.innerHTML="星期一";
+        if(i==0&&j==2) briefDivEl.innerHTML="星期二";
+        if(i==0&&j==3) briefDivEl.innerHTML="星期三";
+        if(i==0&&j==4) briefDivEl.innerHTML="星期四";
+        if(i==0&&j==5) briefDivEl.innerHTML="星期五";
+        if(i==0&&j==6) briefDivEl.innerHTML="星期六";
+        if(i==0&&j==7) briefDivEl.innerHTML="星期日";
+        if(i==1&&j==0) briefDivEl.innerHTML="第一大节";
+        if(i==2&&j==0) briefDivEl.innerHTML="第二大节";
+        if(i==3&&j==0) briefDivEl.innerHTML="第三大节";
+        if(i==4&&j==0) briefDivEl.innerHTML="第四大节";
+        if(i==5&&j==0) briefDivEl.innerHTML="第五大节";
+        if(i==1&&j==1) {
+          briefDivEl.innerHTML = "web应用开发技术<br>@西区第一公共教学楼C411<br>1-15周（单周）";
+          detailDivEl.innerHTML="<br>老师：吕成功<br><br>节数：周一1-2节";
+        }
+        if(i==1&&j==2) {
+          briefDivEl.innerHTML = "西方文化简史<br>@西区第一公共教学楼C311<br>1-17周";
+          detailDivEl.innerHTML="<br>老师：张金柱<br><br>节数：周二1-2节";
+        }
+        if(i==1&&j==3) {
+          briefDivEl.innerHTML = "管理信息系统<br>@西区第一公共教学楼C105<br> 1-15周（单周）";
+          detailDivEl.innerHTML="<br>老师：刘烨<br><br>节数：周三1-2节";
+        }
+        if(i==1&&j==4) {
+          briefDivEl.innerHTML = "数据库原理及应用<br>@西区第一公共教学楼B405<br>2-14周（双周）";
+          detailDivEl.innerHTML="<br>老师：吴君<br><br>节数：周四1-2节";
+        }
+        if(i==2&&j==1) {
+          briefDivEl.innerHTML = "毛泽东思想与中国特色社会主义理论体系概论<br>@西区第一公共教学楼A120<br>1-16周";
+          detailDivEl.innerHTML="<br>老师：顾洪英<br><br>节数：周一3-4节";
+        }
+        if(i==2&&j==2) {
+          briefDivEl.innerHTML = "管理科学基础<br>@西区第一公共教学楼C411<br>3-17周";
+          detailDivEl.innerHTML="<br>老师：赵方方<br><br>节数：周二3-4节";
+        }
+        if(i==2&&j==3) {
+          briefDivEl.innerHTML = "毛泽东思想与中国特色社会主义理论体系概论<br>@西区第一公共教学楼A120<br>1-16周";
+          detailDivEl.innerHTML="<br>老师：顾洪英<br><br>节数：周三3-4节";
+        }
+        if(i==2&&j==4) {
+          briefDivEl.innerHTML = "管理科学基础<br>@西区第一公共教学楼C411<br>3-17周";
+          detailDivEl.innerHTML="<br>老师：赵方方<br><br>节数：周四3-4节";
+        }
+        if(i==2&&j==5) {
+          briefDivEl.innerHTML = "运营管理<br>@西区第一公共教学楼B405<br>1-15周";
+          detailDivEl.innerHTML="<br>老师：刘亮<br><br>节数：周五3-4节";
+        }
+        if(i==3&&j==1) {
+          briefDivEl.innerHTML = "管理信息系统<br>@西区第一公共教学楼C105<br> 1-15周";
+          detailDivEl.innerHTML="<br>老师：刘烨<br><br>节数：周一5-6节";
+        }
+        if(i==3&&j==3) {
+          briefDivEl.innerHTML = "web应用开发技术<br>@管理学院机房<br>1-15周（双周）";
+          detailDivEl.innerHTML="<br>老师：吕成功<br><br>节数：周三5-6节";
+        }
+        if(i==3&&j==4) {
+          briefDivEl.innerHTML = "体育（羽毛球）<br>@健身馆<br>1-15周";
+          detailDivEl.innerHTML="<br>老师：emmmm<br><br>节数：周四5-6节";
+        }
+        if(i==3&&j==5) {
+          briefDivEl.innerHTML = "毛泽东思想与中国特色社会主义理论体系概论<br>@西区第一公共教学楼A120<br>1-16周";
+          detailDivEl.innerHTML="<br>老师：顾洪英<br><br>节数：周五5-6节";
+        }
+        if(i==4&&j==1) {
+          briefDivEl.innerHTML = "电子商务<br>@西区第一公共教学楼B303 <br>3-17周";
+          detailDivEl.innerHTML="<br>老师：张亮<br><br>节数：周一7-8节";
+        }
+        if(i==4&&j==2) {
+          briefDivEl.innerHTML = "数据库原理及应用<br>@西区第一公共教学楼B405<br>1-15周";
+          detailDivEl.innerHTML="<br>老师：吴君<br><br>节数：周二7-8节";
+        }
+        if(i==4&&j==4) {
+          briefDivEl.innerHTML = "会计学<br>@西区第一公共教学楼B101<br>1-17周";
+          detailDivEl.innerHTML="<br>老师：姜红<br><br>节数：周四7-8节";
+        }
+
+        divEl.append(briefDivEl);
+        tdEl.onclick = function(event) {
+          let names = detailDivEl.className.split(' ');
+          if (names.indexOf('open') >= 0) {
+            names = names.filter((x) => x != 'open')
+          } else {
+            names.push('open');
+          }
+          console.log(names);
+          detailDivEl.className = names.join(' ');
+        };
+        let classNames = [];
+        tdEl.className = classNames.join(' ');
+        tdEl.append(divEl);
+        trEl.append(tdEl);
+      }
+      tblEl.append(trEl);
+    }
+    </script>
+</body>
+</html>
